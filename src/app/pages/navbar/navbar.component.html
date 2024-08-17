@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <ul class="navbar-menu" id="navbar-menu">
+        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="home">Home</a></li>
+        <li><a routerLinkActive="active" routerLink="products">Products</a></li>
+        <li><a routerLinkActive="active" routerLink="employee">Employees</a></li>
+        <li><a routerLinkActive="active" routerLink="roles">Roles</a></li>
+    </ul>
+    <div class="logout">
+        @if((user | async)?.userName) {
+        <span style="color: aliceblue; margin-right: 10px;">{{(user | async)?.userName}}</span>
+        <button (click)="logout()">Logout</button>
+        }
+    </div>
+</nav>

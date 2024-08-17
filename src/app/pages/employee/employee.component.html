@@ -1,0 +1,17 @@
+<div class="container">
+    @if(roleAccess.hasPermission(Permission.Edit)) {
+    <button class="btn">Edit</button>
+    }
+    @if(roleAccess.hasPermission(Permission.Add)) {
+    <button class="btn">Add</button>
+    }
+    @if(roleAccess.hasPermission(Permission.Delete)) {
+    <button class="btn">Delete</button>
+    }
+    @if(roleAccess.hasPermission(Permission.View)) {
+    <button class="btn">View</button>
+    }
+    @if(roleAccess.hasPermission(Permission.Download)) {
+    <button class="btn">Download</button>
+    }
+</div>

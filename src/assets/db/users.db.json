@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1,
+    "userName": "superadmin",
+    "name": "mohamed aboelnour",
+    "password": "123",
+    "role": {
+      "name": "SuperAdmin",
+      "screens": [
+        "AccessHome",
+        "AccessEmployee",
+        "AccessProducts",
+        "AccessRole"
+      ],
+      "permissions": ["Add", "Edit", "Delete", "Assign", "View", "Download"]
+    }
+  },
+  {
+    "id": 2,
+    "userName": "admin",
+    "name": "dija aboelnour",
+    "password": "123",
+    "role": {
+      "name": "Admin",
+      "screens": ["AccessHome", "AccessEmployee"],
+      "permissions": ["Add", "Download", "View"]
+    }
+  },
+  {
+    "id": 3,
+    "userName": "sales",
+    "name": "aboelnour",
+    "password": "123",
+    "role": {
+      "name": "Sales",
+      "screens": ["AccessProducts", "AccessHome"],
+      "permissions": [""]
+    }
+  }
+]

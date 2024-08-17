@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #999;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+  margin: 30px 20px;
+}

@@ -1,0 +1,86 @@
+// Variables
+$primary-color: #3498db;
+$secondary-color: #83b9ef;
+$white-color: #fff;
+$gray-color: #bdc3c7;
+
+// Flexbox utility mixin
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Login Container
+.login-container {
+  @include flex-center;
+  height: 100vh;
+  background-color: $secondary-color;
+}
+
+.login-form {
+  background-color: $white-color;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  //   text-align: center;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: $secondary-color;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: $secondary-color;
+      font-weight: bold;
+    }
+
+    input {
+      width: 95%;
+      padding: 0.5rem;
+      border: 1px solid $gray-color;
+      border-radius: 4px;
+      font-size: 1rem;
+      &:first-child {
+        &:focus {
+        }
+      }
+    }
+  }
+
+  .btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: $primary-color;
+    color: $white-color;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+  }
+
+  .signup-link {
+    margin-top: 1rem;
+    color: $secondary-color;
+
+    a {
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
