@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { User } from '../../models/interface/user.model';
 import { BehaviorSubject } from 'rxjs';
 import { RoleAccessService } from '../../services/role-access.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,26 +15,26 @@ import { RoleAccessService } from '../../services/role-access.service';
 })
 export class NavbarComponent implements OnInit {
 
-  user = new BehaviorSubject<User | null>(null);
 
-  constructor(private router: Router, private roleAccess: RoleAccessService) {
-  }
+  constructor(private router: Router, private auth: AuthService) { }
+
+  user$ = this.auth.user$
 
   ngOnInit(): void {
-    this.loadUserFromLocalStorage()
+    // this.loadUserFromLocalStorage()
   }
 
-  loadUserFromLocalStorage() {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      this.user.next(JSON.parse(storedUser));
-    }
-  }
+  // loadUserFromLocalStorage() {
+  //   const storedUser = localStorage.getItem('user');
+  //   if (storedUser) {
+  //     this.user.next(JSON.parse(storedUser));
+  //   }
+  // }
 
   logout() {
     this.router.navigate(['login'])
     localStorage.clear()
-    this.user.next(null);
+    this.auth.removeUser()
   }
 
 }

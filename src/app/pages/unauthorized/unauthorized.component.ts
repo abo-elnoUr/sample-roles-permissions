@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-unauthorized',
@@ -10,9 +10,13 @@ import { RouterModule } from '@angular/router';
 })
 export class UnauthorizedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  close() {
+    this.router.navigate(['home'])
   }
 
 }

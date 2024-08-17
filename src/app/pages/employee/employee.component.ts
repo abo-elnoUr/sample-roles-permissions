@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoleAccessService } from '../../services/role-access.service';
-import { Permission } from '../../models/enum/permession.enum';
+import { Permission } from '../../models/enum/role-permession.enum';
 
 @Component({
   selector: 'app-employee',
@@ -15,6 +15,10 @@ export class EmployeeComponent implements OnInit {
   Permission = Permission
 
   ngOnInit(): void {
+  }
+
+  submit() {
+    alert('congrats you have this permissions ✨✨')
   }
 
 }

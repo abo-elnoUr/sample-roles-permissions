@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Permission } from '../../models/enum/permession.enum';
+import { Permission } from '../../models/enum/role-permession.enum';
 import { Role } from '../../models/interface/role.interface';
 import { RoleAccessService } from '../../services/role-access.service';
 import { AuthService } from '../../services/auth.service';
@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
       this.auth.login(this.form.controls.userName.value, this.form.controls.password.value).subscribe({
         next: (res) => {
           if (res?.role) {
+            this.auth.setUser(res)
             localStorage.setItem('user', JSON.stringify(res))
             this.roleAccess.setRole(res.role)
             this.router.navigate(['home'])

@@ -1,22 +1,21 @@
 <div class="container">
     <h2>Actions Center</h2>
     @if(roleAccess.hasPermission(Permission.Edit)) {
-    <button class="btn">Edit</button>
+    <button (click)="submit()" class="btn">Edit</button>
     }
     @if(roleAccess.hasPermission(Permission.Add)) {
-    <button class="btn">Add</button>
+    <button (click)="submit()" class="btn">Add</button>
     }
     @if(roleAccess.hasPermission(Permission.Delete)) {
-    <button class="btn">Delete</button>
+    <button (click)="submit()" class="btn">Delete</button>
     }
     @if(roleAccess.hasPermission(Permission.View)) {
-    <button class="btn">View</button>
+    <button (click)="submit()" class="btn">View</button>
     }
 </div>
 @if(user| async; as user) {
 
-@if(roleAccess.hasRoleSuperAdmin(user.role.name)) {
-<div class="section admin">
+<div *appHasRole="{roles:[Roles.SuperAdmin], role:user.role.name}" class="section admin">
     <h2>Super Admin</h2>
     <ul>
         <li>Manage Users</li>
@@ -24,12 +23,8 @@
         <li>Modify Settings</li>
     </ul>
 </div>
-}
 
-@if(roleAccess.hasRoleAdmin(user.role.name) || roleAccess.hasRoleSuperAdmin(user.role.name)) {
-
-
-<div class="section editor">
+<div *appHasRole="{roles:[Roles.Admin, Roles.SuperAdmin], role:user.role.name}" class="section editor">
     <h2>Admin</h2>
     <ul>
         <li>Edit Content</li>
@@ -37,18 +32,14 @@
         <li>Access Media Library</li>
     </ul>
 </div>
-}
-@if(roleAccess.hasRoleSales(user.role.name) || roleAccess.hasRoleAdmin(user.role.name) ||
-roleAccess.hasRoleSuperAdmin(user.role.name)) {
 
-<div class="section viewer">
-    <h2>Sales</h2>
+<div *appHasRole="{roles:[Roles.Sales, Roles.Admin, Roles.SuperAdmin, Roles.TeamLeader], role:user.role.name}"
+    class="section viewer">
+    <h2>Sales & Teamleader</h2>
     <ul>
         <li>View Content</li>
         <li>Leave Comments</li>
         <li>Subscribe to Newsletters</li>
     </ul>
 </div>
-}
-
 }

@@ -1,4 +1,4 @@
-import { Permission, Screens } from "../enum/permession.enum";
+import { Permission, Screens } from "../enum/role-permession.enum";
 
 export interface Role {
     name: string;

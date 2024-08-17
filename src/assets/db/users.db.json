@@ -34,7 +34,18 @@
     "role": {
       "name": "Sales",
       "screens": ["AccessProducts", "AccessHome"],
-      "permissions": [""]
+      "permissions": ["View"]
+    }
+  },
+  {
+    "id": 4,
+    "userName": "teamleader",
+    "name": "mohamed",
+    "password": "123",
+    "role": {
+      "name": "TeamLeader",
+      "screens": ["AccessProducts", "AccessHome"],
+      "permissions": ["Assign", "Download", "View"]
     }
   }
 ]

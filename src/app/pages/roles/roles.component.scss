@@ -1,0 +1,54 @@
+.table-container {
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.roles-permissions-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  tbody tr:hover {
+    background-color: #ddd;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  td:first-child {
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .roles-permissions-table td {
+    &.has-permission {
+      color: green;
+    }
+
+    &.no-permission {
+      color: red;
+    }
+  }
+}

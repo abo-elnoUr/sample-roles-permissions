@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Role } from '../models/interface/role.interface';
-import { Permission, Screens } from '../models/enum/permession.enum';
+import { Permission, Roles, Screens } from '../models/enum/role-permession.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,14 @@ export class RoleAccessService {
 
 
   constructor() { }
+
+  hasRole(userRole: string, requiredRole: Roles): boolean {
+    return userRole === requiredRole;
+  }
+
+  hasAnyRole(userRole: string, requiredRoles: Roles[]): boolean {
+    return requiredRoles.includes(userRole as Roles);
+  }
 
   setRole(role: Role): void {
     this.currentRole = role;
@@ -33,14 +41,5 @@ export class RoleAccessService {
     return this.currentRole?.screens.includes(screen) ?? false;
   }
 
-  hasRoleSuperAdmin(roleName: string): boolean {
-    return roleName == 'SuperAdmin'
-  }
-  hasRoleAdmin(roleName: string): boolean {
-    return roleName == 'Admin'
-  }
-  hasRoleSales(roleName: string): boolean {
-    return roleName == 'Sales'
-  }
 
 }

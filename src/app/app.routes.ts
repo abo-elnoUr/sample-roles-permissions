@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { RoleGuard } from './core/role.guard';
-import { Permission, Screens } from './models/enum/permession.enum';
+import { Permission, Screens } from './models/enum/role-permession.enum';
 import { EmployeeComponent } from './pages/employee/employee.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';

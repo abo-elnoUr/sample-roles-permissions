@@ -1,3 +1,10 @@
+export enum Roles {
+    SuperAdmin = 'SuperAdmin',
+    Admin = 'Admin',
+    TeamLeader = 'TeamLeader',
+    Sales = 'Sales',
+}
+
 export enum Permission {
     Add = 'Add',
     Edit = 'Edit',
